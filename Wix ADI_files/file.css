@@ -1,0 +1,148 @@
+/*-----------------------For new assistant panel in ADI--------------------------*/
+#root .kb-container .inner-content .back {
+	border-radius: 50%;
+    position: static;
+    border: 1px solid #2182fd;
+    width: 22px;
+    height: 22px;
+    padding: 1px;
+}
+
+#root .kb-container .inner-content .back:hover {
+	background: #2182fd;
+}
+
+#root .kb-container .inner-content .back:hover svg {
+	color: white;
+}
+
+#root .kb-container .inner-content .back svg {
+	width: 12px;
+    height: 12px;
+    margin-left: 3px;
+    margin-bottom: 2px;
+}
+
+.kb-container .hero-container, .kb-container .breadcrumbs {
+ 	display: none; 
+}
+
+#root .kb-container .article-page .article-view>.title {
+    margin: 0 0 13px;
+}
+
+#root .kb-container .article-page .article-view { 
+	padding: 0;
+}
+
+#root .kb-container .breadcrumbs+div {
+  margin-top: 0;
+}
+/* ---------------------------------------------------------------------------------*/
+#search:focus {
+  background-color: #ffffff !important;
+  border: 1px solid #eaf7ff !important;
+}
+
+#search {
+  background-color: #eaf7ff !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  color: #20303c;
+}
+
+#root .kb-container .hero .search-box .search-placeholder {
+	font-size: 16px;
+}
+
+#root .kb-container .custom-component-container {
+	display: none;
+}
+
+#root .kb-container.kb-home-page .custom-component-container {
+	display: block;
+}
+
+#root .kb-container.kb-home-page .hero .search-box {
+	margin-top: 0;
+}
+
+#root .kb-container.kb-home-page .hero .main-title {
+	display: none;
+}
+
+#root .kb-container .home-page h3 {
+	display: none;
+}
+
+#root .kb-container .home-page .articles>li a {
+	padding-left: 35px;
+}
+
+#root .kb-container .home-page .articles>li {
+    display: flex;
+    align-items: center;
+	height: 100px;
+}
+
+#root .kb-container .home-page .articles>li:not(:last-child) {
+	border-bottom: solid 1px #eff1f2;
+}
+
+#root .kb-container .home-page .articles>li:after {
+	display: none;
+}
+
+#root .kb-container .home-page .articles>li a .svg-icon svg {
+	visibility: hidden;
+}
+
+#root .kb-container .home-page .articles>li a .svg-icon {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+    
+#root .kb-container .home-page .articles>li:nth-child(1) a .svg-icon {
+	background-image: url(//d2x3xhvgiqkx42.cloudfront.net/bcfa7c0f-8d12-4f3d-a505-066aaea510e7/2016/06/01/e4c01f58-d13e-4185-8631-4c52b5ae6d81.svg);
+}
+      
+          
+#root .kb-container .home-page .articles>li:nth-child(2) a .svg-icon {
+	background-image: url(//d2x3xhvgiqkx42.cloudfront.net/bcfa7c0f-8d12-4f3d-a505-066aaea510e7/2016/06/01/afcc72dc-0331-4fab-a760-7c6f7f439263.svg);
+}
+    
+        
+#root .kb-container .home-page .articles>li:nth-child(3) a .svg-icon {
+	background-image: url(//d2x3xhvgiqkx42.cloudfront.net/bcfa7c0f-8d12-4f3d-a505-066aaea510e7/2016/06/01/58a1c339-a70f-4971-9370-04e4b7226e95.svg);
+}
+      
+          
+#root .kb-container .home-page .articles>li:nth-child(4)  a .svg-icon{
+	background-image: url(//d2x3xhvgiqkx42.cloudfront.net/bcfa7c0f-8d12-4f3d-a505-066aaea510e7/2016/06/01/6a87571c-78d8-481e-86a8-3091e05c7cf0.svg);
+}
+    
+        
+#root .kb-container .home-page .articles>li:nth-child(5) a .svg-icon {
+	background-image: url(//d2x3xhvgiqkx42.cloudfront.net/bcfa7c0f-8d12-4f3d-a505-066aaea510e7/2016/06/01/a488a113-81b3-4498-be9e-e8d4b26ee1fe.svg);
+}
+    
+ #root .kb-container .home-page .articles .title {
+	text-indent: -25px;
+}
+    
+#root .kb-container .hero .search-box .search-placeholder {
+	font-size: 1em;
+}
+
+#root .kb-container .inner-content .back {
+	color: #2182fd;
+}
+.feedback-thanks{
+	color: #20455e;
+    font-size: 15px !important; 
+    font-weight: 400 !important;
+    font-family: 'Fira Sans';
+}
+.feedback-thanks a{
+	color: #3899ec;
+}

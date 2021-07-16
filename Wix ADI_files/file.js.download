@@ -1,0 +1,175 @@
+// send analytics - necessary for custom integration directly with Iframe
+window.__wixOnlyWidgetSdk.forceVisibilityStatus(true);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const helvetica = new FontFace('Helvetica Neue', 'url(https://static.parastorage.com/services/third-party/fonts/Helvetica/Fonts/5a13f7d1-b615-418e-bc3a-525001b9a671.woff2?1)');
+  helvetica.load().then(loaded_face => {
+    document.fonts.add(loaded_face);
+    //console.log('success')
+    document.body.style.fontFamily = '"Helvetica Neue", Helvetica, Arial, Sans-Serif';
+  }).catch(e => {
+    //FONT FALLBACK
+    //console.log('fail')
+  })
+});
+
+var translate = {
+  da: {},
+  de: {
+    'wix.title': 'Editorhilfe',
+    'wix.slogan': 'Hier kannst du suchen, oder dir <br/> unsere beliebten Themen unten ansehen.',
+    'wix.mobile.title': 'Hilfe zum Thema Mobile',
+    'wix.mobile.slogan': 'Suche nach deiner Frage, oder sehe dir<br/>unsere Themen zu Mobile an.'
+  },
+  en: {
+    'wix.title': 'Wix ADI Help',
+    'wix.slogan': 'Search for your question or browse our<br/>popular topics below',
+    'wix.mobile.title': 'Mobile Help',
+    'wix.mobile.slogan': 'Search for your question or browse our<br/>mobile related topics below'
+  },
+  es: {
+    'wix.title': 'Ayuda del Editor ',
+    'wix.slogan': 'Encuentra tus respuestas o revisa<br> nuestros temas populares aquí.',
+    'wix.mobile.title': 'Ayuda Móvil ',
+    'wix.mobile.slogan': 'Encuentra tus respuestas o revisa <br> los temas sobre móviles aquí.'
+  },
+  fr: {
+    'wix.title': 'Guide de l’Éditeur',
+    'wix.slogan': 'Cherchez votre question ou consultez<br/>nos sujets populaires ci-dessous :',
+    'wix.mobile.title': 'Assistance Mobile',
+    'wix.mobile.slogan': 'Cherchez votre question ou consultez<br/>nos sujets mobiles ci-dessous :'
+  },
+  it: {
+    'wix.title': 'Aiuto Editor',
+    'wix.slogan': 'Cerca la tua domanda o consulta<br/>i nostri argomenti popolari di seguito',
+    'wix.mobile.title': 'Aiuto per il mobile',
+    'wix.mobile.slogan': 'Cerca la tua domanda o consulta<br/>i nostri argomenti relativi al mobile'
+  },
+  ja: {
+    'wix.title': 'エディタヘルプ',
+    'wix.slogan': '質問を検索するか<br/>下記のよくある上位の質問をご確認ください。',
+    'wix.mobile.title': 'モバイルヘルプ',
+    'wix.mobile.slogan': '質問を検索するか<br/>モバイル関連の質問をご確認ください。'
+  },
+  ko: {
+    'wix.title': 'Wix 도움말 센터',
+    'wix.slogan': '질문을 입력하거나,<br/>아래 주제를 검색하세요.',
+    'wix.mobile.title': '모바일 도움말',
+    'wix.mobile.slogan': '질문을 입력하거나,<br>아래 모바일 관련 주제를 검색하세요.'
+  },
+  nl: {},
+  no: {},
+  pl: {
+    'wix.title': 'Pomoc Wix',
+    'wix.slogan': 'Przeszukaj bazę odpowiedzi lub przejrzyj<br> popularne tematy poniżej',
+    'wix.mobile.title': 'Pomoc Mobile',
+    'wix.mobile.slogan': 'Przeszukaj bazę odpowiedzi lub przejrzyj<br> popularne tematy dotyczące funkcji mobile poniżej'
+  },
+  pt: {
+    'wix.title': 'Ajuda do Editor',
+    'wix.slogan': 'Ainda com dúvidas? Poste a sua pergunta<br>abaixo ou ache a resposta nos tópicos abaixo',
+    'wix.mobile.title': 'Ajuda Mobile',
+    'wix.mobile.slogan': 'Ainda com dúvidas? Poste a sua pergunta abaixo <br> ou ache a resposta nos tópicos abaixo'
+  },
+  ru: {
+    'wix.title': 'Помощь в редакторе',
+    'wix.slogan': 'Задайте вопрос или ознакомьтесь<br/>с самыми популярными темами ниже',
+    'wix.mobile.title': 'Мобильный редактор',
+    'wix.mobile.slogan': 'Задайте вопрос или ознакомьтесь<br/> с темами по мобильному редактору ниже'
+  },
+  sv: {},
+  tr: {},
+  zh: {
+    'wix.title': 'Editor Help',
+    'wix.slogan': 'Search for your question or browse<br/>our popular topics below',
+    'wix.mobile.title': 'Mobile Help',
+    'wix.mobile.slogan': 'Search for your question or browse<br/>our mobile related topics below'
+  }
+}
+
+var href = window.location.href
+var widgetLocation =  href.replace(/https:\/\/wix.wixanswers.com\/apps\/widget\/v1\/wix\/74e18825-9887-4be4-93c6-33f69432dc5c\/view\//, '').substring(0, 2) || 'en';
+var currLocaleTranslate = translate[widgetLocation];
+
+var adiHeader = `
+<div style="color: #ffffff;
+    display: flex;
+    padding-top: 28px;">
+  <div style="margin: 0 21px 30px 13px;
+    width: 82px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: -17px -21px;
+    background-image: url(https://d2x3xhvgiqkx42.cloudfront.net/12345678-1234-1234-1234-1234567890ab/2016/06/08/339cdf07-d08b-4e34-89d2-2bdf9e7bc900.gif);"></div>
+  <div style="display: inline-block;
+    text-align: left;">
+    <div style="font-size: 24px;
+    line-height: 23px;
+    color: #20303c;
+    font - weight: 500;
+    ">${currLocaleTranslate['wix.title']}</div>
+    <div style="font-size: 16px;
+    line-height: 24px;
+    margin-top: 9px;
+    width: 100.1%;
+    color: #66737c;
+    font - weight: 500;
+    ">${currLocaleTranslate['wix.slogan']}</div>
+  </div>
+</div>
+`;
+window.__answersWidgetSdk.addCustomHeroHtml(adiHeader);
+
+// chatbot was it helpful test 
+(function (w, d)  {
+  
+  function injectNewMsg(articleId) {
+    var unhelpfulBtn = d.querySelector("a.unhelpful");
+   	var chatbotUrl = 'https://www.wix.com/support-chatbot?t=2&alert=0&nodeId=RNc3EQNG7DHSFMjbPaLn&_articleSource=adi&referral='+articleId
+	
+    var unhelpfulMsg =  d.querySelector(".feedback-thanks");
+    if (typeof(unhelpfulMsg) != 'undefined' && unhelpfulMsg != null)
+    {
+    }else{
+    unhelpfulMsg = d.createElement("div");
+    unhelpfulMsg.classList.add("feedback-thanks");
+    }
+	unhelpfulMsg.innerHTML = 'Sorry about that. To resolve your issue and help us improve, <a target="_blank" href="' + chatbotUrl + '">click here.</a>'
+    d.querySelector(".feedback").appendChild(unhelpfulMsg);
+    
+    //scroll to the bottom
+	let innerContent = document.querySelector('div.inner-content');
+    innerContent.scrollTop = innerContent.scrollHeight
+  }
+
+  function injectNewHelpfulMsg(){
+  	var helpfulMsg =  d.querySelector(".feedback-thanks");
+    if (typeof(helpfulMsg) != 'undefined' && helpfulMsg != null)
+    {
+    }else{
+    helpfulMsg = d.createElement("div");
+    helpfulMsg.classList.add("feedback-thanks");
+    }
+	helpfulMsg.innerHTML = 'Awesome! Thanks for the feedback.'
+    d.querySelector(".feedback").appendChild(helpfulMsg);
+  }
+
+window.__answersWidgetSdk.addEventHandler((eventType, eventData) => {
+    if (eventType === 20) {
+       	if (window.location.href.toLowerCase().indexOf("/en/") > -1) {
+          var unhelpfulBtn = d.querySelector("a.unhelpful");
+          var newUnhelpfulBtn = unhelpfulBtn.cloneNode(true);
+          unhelpfulBtn = unhelpfulBtn.parentNode.replaceChild(newUnhelpfulBtn, unhelpfulBtn);
+          unhelpfulBtn = d.querySelector("a.unhelpful");
+          unhelpfulBtn.addEventListener('click',()=>{injectNewMsg(eventData.articleId)}, false);
+
+          var helpfulBtn = d.querySelector("a.helpful");
+          var newhelpfulBtn = helpfulBtn.cloneNode(true);
+          helpfulBtn = helpfulBtn.parentNode.replaceChild(newhelpfulBtn, helpfulBtn);
+          helpfulBtn = d.querySelector("a.helpful");
+          helpfulBtn.addEventListener('click',injectNewHelpfulMsg, false);
+        }
+	}   
+});
+})(window, document);
+//chatbot end
